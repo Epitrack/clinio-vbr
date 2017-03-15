@@ -46,3 +46,4 @@ trained_*
 dbs*
 #data/
 __pycache__/
+*.pyc
