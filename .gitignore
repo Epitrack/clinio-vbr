@@ -44,3 +44,5 @@ checkpoints_*
 predicted_*
 trained_*
 dbs*
+#data/
+__pycache__/
