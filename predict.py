@@ -3,15 +3,14 @@ import sys
 import json
 import shutil
 import pickle
-import logging
+from logconfig import Log
 import data_helper
 import numpy as np
 import pandas as pd
 import tensorflow as tf
 from text_cnn_rnn import TextCNNRNN
 
-logging.getLogger().setLevel(logging.INFO)
-
+logging = Log().getInstance()
 
 def load_trained_params(trained_dir):
     params = json.loads(open(trained_dir + 'trained_parameters.json').read())
@@ -25,6 +24,7 @@ def load_trained_params(trained_dir):
 
 
 def load_test_data(test_file, labels):
+    logging.debug("load data test")
     df = pd.read_csv(test_file, sep='|')
     select = ['Descript']
 
@@ -139,4 +139,5 @@ def predict_unseen_data():
 
 
 if __name__ == '__main__':
+    logging.debug("Starting predict")
     predict_unseen_data()

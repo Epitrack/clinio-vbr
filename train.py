@@ -4,7 +4,8 @@ import json
 import time
 import shutil
 import pickle
-import logging
+# import logging
+from logconfig import Log
 import data_helper
 import numpy as np
 import pandas as pd
@@ -12,8 +13,7 @@ import tensorflow as tf
 from text_cnn_rnn import TextCNNRNN
 from sklearn.model_selection import train_test_split
 
-logging.getLogger().setLevel(logging.INFO)
-
+logging = Log().getInstance()
 
 def train_cnn_rnn():
     input_file = sys.argv[1]
